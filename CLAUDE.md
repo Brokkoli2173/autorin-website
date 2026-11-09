@@ -1,21 +1,22 @@
 # CLAUDE.md
 
-Website einer Autorin, die sich und ihre Arbeit (Bücher, Lesungen,
-Presse) vorstellt. Kein Projekt aus Melis' Portfolio, sondern eine Seite
-für eine Kundin. Aufgebaut wie `~/roze-esthetique`.
+Website der Autorin **Jule Peuckmann**, die sich und ihre Arbeit
+(Bücher, Lesungen, Presse) vorstellt. Kein Projekt aus Melis' Portfolio,
+sondern eine Seite für eine Kundin. Aufgebaut wie `~/roze-esthetique`.
+Repo: `github.com/Brokkoli2173/autorin-website`.
 
 ## Stand
 
-- Nur das Gerüst steht. Name, Texte, Bücher, Termine, Bilder und der
-  gestalterische Stil („Vibe“) kommen noch von der Nutzerin. Alles in
-  eckigen Klammern (`[Name der Autorin]`, `[Buchtitel]`, …) ist
+- Das Gerüst steht, der Name ist eingesetzt. Texte, Bücher, Termine,
+  Bilder und der gestalterische Stil („Vibe“) kommen noch von der
+  Nutzerin. Alles in eckigen Klammern (`[Buchtitel]`, …) ist
   Platzhalter und muss vor dem Livegang ersetzt werden:
   `grep -rn "\[" --include=*.html .`
 - Farben, Schriften und Abstände sind bewusst neutral und stehen als
   Variablen oben in `assets/css/style.css` (`:root`). Den Stil dort
   festlegen, nicht verstreut in den Regeln.
-- Ein Repository auf GitHub gibt es noch nicht. Erst anlegen und pushen,
-  wenn die Nutzerin es sagt.
+- GitHub Pages ist noch **nicht** eingeschaltet (Platzhalter sollen
+  nicht live gehen). Pushen nur, wenn die Nutzerin es sagt.
 
 ## Hosting
 
