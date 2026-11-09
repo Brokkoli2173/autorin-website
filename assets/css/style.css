@@ -1,0 +1,585 @@
+/* ==========================================================================
+   Website [Name der Autorin]
+   The look is deliberately neutral until the style is decided: change the
+   variables in :root first (colours, fonts, sizes), not the rules below.
+   ========================================================================== */
+
+:root {
+  /* Colours */
+  --bg: #f6f3ee;
+  --bg-tinted: #eee9e1;
+  --surface: #ffffff;
+  --ink: #1f1d1a;
+  --ink-soft: #5c5750;
+  --line: #ddd6cb;
+  --accent: #1f1d1a;
+  --accent-ink: #f6f3ee;
+
+  /* Fonts: system fonts until the style is chosen. Self-host any web
+     font as .woff2 in assets/fonts/ (no Google Fonts, see CLAUDE.md). */
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Type scale */
+  --text-small: 0.875rem;
+  --text-body: 1.0625rem;
+  --text-lead: clamp(1.125rem, 0.6vw + 1rem, 1.3125rem);
+  --text-h3: 1.375rem;
+  --text-h2: clamp(1.75rem, 2.2vw + 1rem, 2.5rem);
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+
+  /* Layout */
+  --container: 72rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --section-y: clamp(4rem, 8vw, 7rem);
+  --radius: 4px;
+  --header-h: 4.5rem;
+}
+
+/* Base ===================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--header-h);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+figure,
+blockquote {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--accent-ink);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  font-size: var(--text-small);
+  text-underline-offset: 0.25em;
+}
+
+.note {
+  margin-top: 2rem;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+/* Buttons ================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: var(--text-small);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--accent-ink);
+}
+
+.btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn--solid:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* Placeholders (remove once real images exist) ============================= */
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  background: var(--bg-tinted);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.placeholder--cover {
+  aspect-ratio: 2 / 3;
+}
+
+.placeholder--portrait {
+  aspect-ratio: 4 / 5;
+}
+
+/* Header =================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: var(--header-h);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.nav {
+  display: none;
+  gap: 2rem;
+  font-size: var(--text-small);
+}
+
+.nav a {
+  text-decoration: none;
+  text-underline-offset: 0.35em;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 60;
+  display: grid;
+  gap: 6px;
+  place-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.25s;
+}
+
+.menu-open .menu-toggle span:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.menu-open .menu-toggle span:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--header-h) var(--gutter) 2rem;
+  background: var(--bg);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.mobile-menu li + li {
+  margin-top: 1rem;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.menu-open .mobile-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 52rem) {
+  .nav {
+    display: flex;
+  }
+
+  .menu-toggle,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* Hero ===================================================================== */
+
+.hero {
+  padding-block: clamp(3rem, 8vw, 6rem) var(--section-y);
+}
+
+.hero__grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+}
+
+.hero__lead {
+  max-width: 34rem;
+  color: var(--ink-soft);
+  font-size: var(--text-lead);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero__media {
+  max-width: 22rem;
+  width: 100%;
+  justify-self: center;
+}
+
+@media (min-width: 52rem) {
+  .hero__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* Sections ================================================================= */
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tinted {
+  background: var(--bg-tinted);
+}
+
+.section--tinted .placeholder {
+  background: var(--bg);
+}
+
+.section__head {
+  max-width: 40rem;
+  margin-bottom: 3rem;
+}
+
+/* Books */
+
+.books {
+  display: grid;
+  gap: 3rem;
+}
+
+.book {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.book__meta {
+  margin-bottom: 0.4rem;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.book__title {
+  margin-bottom: 0.6rem;
+}
+
+@media (min-width: 52rem) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* About */
+
+.about {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about__media {
+  max-width: 24rem;
+  width: 100%;
+}
+
+.about__text {
+  max-width: 38rem;
+}
+
+@media (min-width: 52rem) {
+  .about {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+/* Events */
+
+.events {
+  border-top: 1px solid var(--line);
+}
+
+.event {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.event__date {
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.event__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.event__place {
+  margin: 0.2rem 0 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+@media (min-width: 52rem) {
+  .event {
+    grid-template-columns: 11rem 1fr auto;
+    align-items: baseline;
+  }
+}
+
+/* Press */
+
+.quotes {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.quote blockquote {
+  font-family: var(--font-display);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+}
+
+.quote figcaption {
+  margin-top: 0.75rem;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+@media (min-width: 52rem) {
+  .quotes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+/* Contact */
+
+.contact__list {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 36rem;
+  margin-top: 1rem;
+}
+
+.contact__list li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.contact__label {
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.contact__list a {
+  font-size: var(--text-lead);
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+}
+
+/* Footer =================================================================== */
+
+.site-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.footer-brand {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Legal pages and 404 ====================================================== */
+
+.legal {
+  max-width: 44rem;
+  padding-block: clamp(3rem, 8vw, 5rem) var(--section-y);
+}
+
+.legal h1 {
+  font-size: var(--text-h2);
+}
+
+.legal h2 {
+  margin-top: 2.5rem;
+  font-size: var(--text-h3);
+}
+
+.legal .back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: var(--text-small);
+}
+
+/* Reveal on scroll (only with JS and without reduced motion) =============== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
