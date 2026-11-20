@@ -12,9 +12,21 @@ Repo: `github.com/Brokkoli2173/autorin-website`.
   Nutzerin. Alles in eckigen Klammern (`[Buchtitel]`, …) ist
   Platzhalter und muss vor dem Livegang ersetzt werden:
   `grep -rn "\[" --include=*.html .`
-- Farben, Schriften und Abstände sind bewusst neutral und stehen als
-  Variablen oben in `assets/css/style.css` (`:root`). Den Stil dort
-  festlegen, nicht verstreut in den Regeln.
+- Jule schreibt **Drehbücher** und studiert an der Filmakademie
+  Baden-Württemberg. Ihre Wünsche (Nov 2026): Startseite als persönlicher
+  Text („Hi, ich bin Jule“) mit Foto, Filme mit Trailer oder Szene und
+  Standbildern, Drehbuchseiten als Leseprobe, Link zu ihrem Buch,
+  insgesamt **dunkel**, und jeder Film in einer Stimmung, die zu seinem
+  Thema passt (`style="--film: #..."` pro `.film`).
+- Gesicherte Fakten bisher nur aus Filmportal: *Sechshundert Warm* /
+  *People Pleasure* (2024, 10 Min., Drehbuch Jule, Regie Oskar
+  Stolovits, Uraufführung Hofer Filmtage 25.10.2024). Die Logline dort
+  ist abgeleitet und von Jule zu bestätigen. Roman *1957* (Hybrid
+  Verlag, Mai 2023): Klappentext, Cover und Leseprobe-PDF-Link vom
+  Verlag. Nichts erfinden. Die Überschrift ist bewusst ihr Name, nicht
+  „Hi, ich bin ...“ (zu nah an Melis' Portfolio).
+- Farben und Schriften stehen als Variablen oben in
+  `assets/css/style.css` (`:root`); Courier ist die Drehbuchschrift.
 - GitHub Pages ist noch **nicht** eingeschaltet (Platzhalter sollen
   nicht live gehen). Pushen nur, wenn die Nutzerin es sagt.
 
@@ -56,8 +68,9 @@ Repo: `github.com/Brokkoli2173/autorin-website`.
 
 ## Aufbau
 
-- `index.html`: Start, Bücher, Über mich, Lesungen und Termine, Presse,
-  Kontakt.
+- `index.html`: Start (persönlicher Text), Filme, Leseprobe
+  (Drehbuchseite im Standardformat, `.screenplay` mit `.sp-*`), Buch,
+  Über mich, Kontakt. Videos selbst gehostet in `assets/video/`.
 - `impressum.html`, `datenschutz.html`, `404.html` (die 404-Seite nutzt
   absolute Pfade `/assets/...`, weil GitHub Pages sie unter jeder
   Adresse ausliefert; das stimmt erst mit eigener Domain. Unter

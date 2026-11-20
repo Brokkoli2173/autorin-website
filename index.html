@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jule Peuckmann | Autorin</title>
-  <meta name="description" content="[Ein Satz über die Autorin und ihre Bücher, etwa 150 Zeichen.]">
-  <meta name="theme-color" content="#f6f3ee">
-  <meta property="og:title" content="Jule Peuckmann | Autorin">
-  <meta property="og:description" content="[Ein Satz über die Autorin und ihre Bücher.]">
+  <title>Jule Peuckmann | Drehbuch</title>
+  <meta name="description" content="Jule Peuckmann schreibt Drehbücher und studiert an der Filmakademie Baden-Württemberg. Filme, Leseprobe, Buch und Kontakt.">
+  <meta name="theme-color" content="#0f0e0d">
+  <meta property="og:title" content="Jule Peuckmann | Drehbuch">
+  <meta property="og:description" content="Filme, Drehbuchseiten und ein Buch von Jule Peuckmann.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261109-1">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120-1">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="assets/js/main.js?v=20261109-1" defer></script>
+  <script src="assets/js/main.js?v=20261120-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -23,10 +23,10 @@
       <a class="brand" href="#top">Jule Peuckmann</a>
 
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="#buecher">Bücher</a>
+        <a href="#filme">Filme</a>
+        <a href="#leseprobe">Leseprobe</a>
+        <a href="#buch">Buch</a>
         <a href="#ueber-mich">Über mich</a>
-        <a href="#lesungen">Lesungen</a>
-        <a href="#presse">Presse</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
@@ -39,10 +39,10 @@
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <ul>
-      <li><a href="#buecher">Bücher</a></li>
+      <li><a href="#filme">Filme</a></li>
+      <li><a href="#leseprobe">Leseprobe</a></li>
+      <li><a href="#buch">Buch</a></li>
       <li><a href="#ueber-mich">Über mich</a></li>
-      <li><a href="#lesungen">Lesungen</a></li>
-      <li><a href="#presse">Presse</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
   </div>
@@ -50,54 +50,150 @@
   <main id="top">
     <div id="inhalt"></div>
 
-    <!-- Start ============================================================= -->
+    <!-- Start: persönlich, wie ein kurzer Brief ========================== -->
     <section class="hero" aria-label="Einleitung">
       <div class="container hero__grid">
         <div class="hero__content">
-          <p class="eyebrow reveal">Autorin</p>
+          <p class="eyebrow reveal">Drehbuch und Roman</p>
           <h1 class="hero__title reveal">Jule Peuckmann</h1>
-          <p class="hero__lead reveal">[Ein bis zwei Sätze: worüber sie schreibt und für wen.]</p>
+          <div class="hero__letter reveal">
+            <p>Ich schreibe Geschichten, die man sehen soll. Am liebsten Fantasy und Horror, für die Leinwand und fürs Buch.</p>
+            <p>Gerade studiere ich an der Filmakademie Baden-Württemberg in Ludwigsburg. [Ein Satz in Jules eigener Stimme, was man hier findet.]</p>
+          </div>
           <div class="hero__actions reveal">
-            <a class="btn btn--solid" href="#buecher">Zu den Büchern</a>
-            <a class="btn" href="#lesungen">Nächste Lesungen</a>
+            <a class="btn btn--solid" href="#filme">Filme ansehen</a>
+            <a class="btn" href="#buch">Mein Roman</a>
           </div>
         </div>
         <figure class="hero__media reveal">
-          <!-- Neuestes Buchcover oder Porträt: <img src="assets/images/..." alt="..." width="..." height="..."> -->
-          <div class="placeholder placeholder--cover" aria-hidden="true">Cover oder Porträt</div>
+          <img src="assets/images/jule-peuckmann.jpg" alt="Porträt von Jule Peuckmann in Schwarzweiß" width="700" height="701">
         </figure>
       </div>
     </section>
 
-    <!-- Bücher ============================================================ -->
-    <section class="section" id="buecher" aria-labelledby="buecher-titel">
+    <!-- Filme =============================================================
+         Pro Film ein <article class="film">, neuester zuerst.
+         Jeder Film hat seine eigene Stimmungsfarbe: style="--film: #...".
+         Trailer oder Szene als eigene Datei (assets/video/*.mp4, H.264,
+         etwa 720p) mit Standbild als poster. Kein YouTube/Vimeo ohne
+         Anpassung von datenschutz.html (siehe CLAUDE.md). -->
+    <section class="section" id="filme" aria-labelledby="filme-titel">
       <div class="container">
         <header class="section__head reveal">
-          <p class="eyebrow">Bücher</p>
-          <h2 id="buecher-titel">[Überschrift für die Bücher]</h2>
+          <p class="eyebrow">Filme</p>
+          <h2 id="filme-titel">Was ich geschrieben habe</h2>
         </header>
 
-        <ul class="books">
-          <!-- Pro Buch ein <li class="book">. Reihenfolge: neuestes zuerst. -->
-          <li class="book reveal">
-            <div class="placeholder placeholder--cover" aria-hidden="true">Cover</div>
-            <div class="book__body">
-              <p class="book__meta">[Genre] · [Verlag] · [Jahr]</p>
-              <h3 class="book__title">[Buchtitel]</h3>
-              <p>[Kurzer Klappentext, zwei bis drei Sätze.]</p>
-              <a class="text-link" href="#">[Mehr erfahren oder Bestellen]</a>
+        <div class="films">
+
+          <article class="film reveal" style="--film: #d4894a;" aria-labelledby="film-600">
+            <div class="film__media">
+              <!-- <video controls preload="none" playsinline poster="assets/images/sechshundert-warm-still-1.jpg" width="1280" height="720">
+                     <source src="assets/video/sechshundert-warm-trailer.mp4" type="video/mp4">
+                   </video> -->
+              <div class="placeholder placeholder--wide" aria-hidden="true">Trailer oder Szene</div>
             </div>
-          </li>
-          <li class="book reveal">
-            <div class="placeholder placeholder--cover" aria-hidden="true">Cover</div>
-            <div class="book__body">
-              <p class="book__meta">[Genre] · [Verlag] · [Jahr]</p>
-              <h3 class="book__title">[Buchtitel]</h3>
-              <p>[Kurzer Klappentext, zwei bis drei Sätze.]</p>
-              <a class="text-link" href="#">[Mehr erfahren oder Bestellen]</a>
+            <div class="film__body">
+              <p class="film__meta">Kurzspielfilm · 2024 · 10 Min.</p>
+              <h3 class="film__title" id="film-600">Sechshundert Warm</h3>
+              <p class="film__alt">People Pleasure</p>
+              <!-- Logline aus der Filmportal-Beschreibung abgeleitet, von Jule bestätigen oder ersetzen lassen. -->
+              <p class="film__logline">Eine WG vermietet ein Zimmer und erwartet von der neuen Person darin mehr als nur die Miete.</p>
+              <dl class="credits">
+                <div><dt>Drehbuch</dt><dd>Jule Peuckmann</dd></div>
+                <div><dt>Regie</dt><dd>Oskar Stolovits</dd></div>
+                <div><dt>Kamera</dt><dd>Tillmann Seiffert</dd></div>
+                <div><dt>Schnitt</dt><dd>Gianna Staude</dd></div>
+                <div><dt>Ton</dt><dd>Vladi Ederle</dd></div>
+                <div><dt>Produktion</dt><dd>Helen Haase</dd></div>
+              </dl>
+              <p class="film__festival">Uraufführung bei den Internationalen Hofer Filmtagen, 25. Oktober 2024</p>
+              <a class="text-link" href="https://www.filmportal.de/en/node/2174465" target="_blank" rel="noopener noreferrer">Mehr bei filmportal.de</a>
             </div>
-          </li>
-        </ul>
+            <ul class="stills" aria-label="Standbilder">
+              <!-- <li><img src="assets/images/sechshundert-warm-still-2.jpg" alt="..." width="1280" height="720" loading="lazy"></li> -->
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+            </ul>
+          </article>
+
+          <article class="film reveal" style="--film: #6f8fb0;" aria-labelledby="film-2">
+            <div class="film__media">
+              <div class="placeholder placeholder--wide" aria-hidden="true">Trailer oder Szene</div>
+            </div>
+            <div class="film__body">
+              <p class="film__meta">[Format] · [Jahr] · [Länge]</p>
+              <h3 class="film__title" id="film-2">[Filmtitel]</h3>
+              <p class="film__logline">[Logline in einem Satz.]</p>
+              <dl class="credits">
+                <div><dt>Drehbuch</dt><dd>Jule Peuckmann</dd></div>
+                <div><dt>Regie</dt><dd>[Name]</dd></div>
+              </dl>
+              <p class="film__festival">[Festivals oder Auszeichnungen, optional]</p>
+            </div>
+            <ul class="stills" aria-label="Standbilder">
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+              <li><div class="placeholder placeholder--wide" aria-hidden="true">Standbild</div></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Leseprobe: Drehbuchseite im echten Format ======================= -->
+    <section class="section section--tinted" id="leseprobe" aria-labelledby="leseprobe-titel">
+      <div class="container reading">
+        <header class="reading__head reveal">
+          <p class="eyebrow">Leseprobe</p>
+          <h2 id="leseprobe-titel">So schreibe ich</h2>
+          <p>[Ein Satz zur Szene: aus welchem Projekt, was davor passiert ist.]</p>
+          <!-- Ganze Leseprobe als PDF: assets/leseprobe/....pdf -->
+          <a class="btn" href="#">[Drehbuchseiten als PDF]</a>
+        </header>
+
+        <!-- Szene aus einem ihrer Drehbücher. Elemente: .sp-slug (Szenenkopf),
+             .sp-action (Handlung), .sp-char (Figur), .sp-paren (Regieanweisung),
+             .sp-dialog (Dialog), .sp-trans (Übergang). -->
+        <article class="screenplay reveal" aria-label="Drehbuchauszug">
+          <p class="sp-slug">1 INNEN. [ORT] - [TAG/NACHT]</p>
+          <p class="sp-action">[Handlung: was man sieht. Kurz, im Präsens.]</p>
+          <p class="sp-char">[FIGUR A]</p>
+          <p class="sp-dialog">[Dialogzeile.]</p>
+          <p class="sp-char">[FIGUR B]</p>
+          <p class="sp-paren">([leise])</p>
+          <p class="sp-dialog">[Antwort.]</p>
+          <p class="sp-action">[Handlung.]</p>
+          <p class="sp-char">[FIGUR A]</p>
+          <p class="sp-dialog">[Dialogzeile.]</p>
+          <p class="sp-trans">SCHNITT AUF:</p>
+          <p class="sp-page">1.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Buch ============================================================== -->
+    <section class="section" id="buch" aria-labelledby="buch-titel">
+      <!-- Klappentext, Cover und Angaben vom Hybrid Verlag (Produktseite). -->
+      <div class="container book reveal" style="--film: #7fb04f;">
+        <figure class="book__cover">
+          <img src="assets/images/1957-cover.jpg" alt="Buchcover von 1957: ein altes Telefon vor dunkler, grün und rot verfärbter Wand" width="395" height="600" loading="lazy">
+        </figure>
+        <div class="book__body">
+          <p class="eyebrow">Roman</p>
+          <h2 id="buch-titel">1957</h2>
+          <p class="book__meta">Fantasy und Mystery · Hybrid Verlag · Mai 2023 · Taschenbuch und E-Book</p>
+          <blockquote class="book__blurb">
+            <p>Im Jahre 1957 erhält eine kleine, erfolglose Detektei am Rande Londons einen mysteriösen Auftrag. Die Detektive sollen ein aus der Psychiatrie entflohenes Mädchen finden. Dafür winkt dem Alkoholiker Scott Hotch und seinem schüchternen Mitarbeiter Campbell Mansington ein Honorar, dessen Höhe alle Zweifel ausräumt.</p>
+            <p>Was zunächst eine Routinearbeit zu sein scheint, stellt sich rasch als lebensgefährliche Mission dar. Dem Mädchen stehen offenbar besondere Kräfte zur Verfügung, die es ohne Hemmungen gegen ihre Mitmenschen einsetzt.</p>
+          </blockquote>
+          <div class="book__actions">
+            <a class="btn btn--solid" href="https://hybridverlagshop.de/fantasy-mystery/157/1957" target="_blank" rel="noopener noreferrer">Zum Buch</a>
+            <a class="btn" href="https://hybridverlagshop.de/media/pdf/ed/db/29/XL_Leseprobe_1957.pdf" target="_blank" rel="noopener noreferrer">Leseprobe (PDF)</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -105,67 +201,14 @@
     <section class="section section--tinted" id="ueber-mich" aria-labelledby="ueber-titel">
       <div class="container about">
         <figure class="about__media reveal">
-          <div class="placeholder placeholder--portrait" aria-hidden="true">Porträt</div>
+          <div class="placeholder placeholder--portrait" aria-hidden="true">Zweites Foto</div>
         </figure>
         <div class="about__text reveal">
           <p class="eyebrow">Über mich</p>
           <h2 id="ueber-titel">[Überschrift]</h2>
-          <p>[Absatz über die Autorin: Herkunft, Weg zum Schreiben, Themen.]</p>
-          <p>[Zweiter Absatz, optional: Auszeichnungen, Stipendien, was sie gerade schreibt.]</p>
+          <p>Ich studiere [Studiengang] an der Filmakademie Baden-Württemberg. [Woher sie kommt, wie sie zum Schreiben gekommen ist.]</p>
+          <p>[Was sie gerade schreibt, Stipendien oder Preise, optional.]</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Lesungen und Termine ============================================== -->
-    <section class="section" id="lesungen" aria-labelledby="lesungen-titel">
-      <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">Lesungen</p>
-          <h2 id="lesungen-titel">[Überschrift für Termine]</h2>
-        </header>
-
-        <ul class="events">
-          <!-- Pro Termin ein <li class="event">, nach Datum sortiert. Vergangene Termine entfernen. -->
-          <li class="event reveal">
-            <time class="event__date" datetime="2026-01-01">[TT. Monat JJJJ]</time>
-            <div class="event__body">
-              <h3 class="event__title">[Titel der Veranstaltung]</h3>
-              <p class="event__place">[Ort, Stadt] · [Uhrzeit]</p>
-            </div>
-            <a class="text-link" href="#">[Tickets oder Infos]</a>
-          </li>
-          <li class="event reveal">
-            <time class="event__date" datetime="2026-01-01">[TT. Monat JJJJ]</time>
-            <div class="event__body">
-              <h3 class="event__title">[Titel der Veranstaltung]</h3>
-              <p class="event__place">[Ort, Stadt] · [Uhrzeit]</p>
-            </div>
-            <a class="text-link" href="#">[Tickets oder Infos]</a>
-          </li>
-        </ul>
-        <p class="note reveal">[Hinweis für Veranstalter: Anfragen für Lesungen gern per E-Mail.]</p>
-      </div>
-    </section>
-
-    <!-- Presse ============================================================ -->
-    <section class="section section--tinted" id="presse" aria-labelledby="presse-titel">
-      <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">Presse</p>
-          <h2 id="presse-titel">[Überschrift für Pressestimmen]</h2>
-        </header>
-
-        <div class="quotes">
-          <figure class="quote reveal">
-            <blockquote><p>[Zitat aus einer Rezension.]</p></blockquote>
-            <figcaption>[Medium oder Person]</figcaption>
-          </figure>
-          <figure class="quote reveal">
-            <blockquote><p>[Zitat aus einer Rezension.]</p></blockquote>
-            <figcaption>[Medium oder Person]</figcaption>
-          </figure>
-        </div>
-        <!-- Optional: Pressefotos und Kurzbiografie zum Download (assets/presse/...). -->
       </div>
     </section>
 
@@ -173,15 +216,15 @@
     <section class="section" id="kontakt" aria-labelledby="kontakt-titel">
       <div class="container contact reveal">
         <p class="eyebrow">Kontakt</p>
-        <h2 id="kontakt-titel">[Überschrift für Kontakt]</h2>
+        <h2 id="kontakt-titel">Schreib mir</h2>
         <ul class="contact__list">
           <li>
             <span class="contact__label">E-Mail</span>
             <a href="mailto:[adresse@beispiel.de]">[adresse@beispiel.de]</a>
           </li>
           <li>
-            <span class="contact__label">Verlag und Presse</span>
-            <span>[Ansprechperson im Verlag, optional]</span>
+            <span class="contact__label">Agentur</span>
+            <span>[Agentur, optional]</span>
           </li>
           <li>
             <span class="contact__label">Instagram</span>

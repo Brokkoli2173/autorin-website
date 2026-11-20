@@ -1,38 +1,43 @@
 /* ==========================================================================
    Website Jule Peuckmann
-   The look is deliberately neutral until the style is decided: change the
-   variables in :root first (colours, fonts, sizes), not the rules below.
+   Dark, cinematic look: change the variables in :root first (colours,
+   fonts, sizes), not the rules below. Each film sets its own mood colour
+   with style="--film: #..." on its <article class="film">.
    ========================================================================== */
 
 :root {
   /* Colours */
-  --bg: #f6f3ee;
-  --bg-tinted: #eee9e1;
-  --surface: #ffffff;
-  --ink: #1f1d1a;
-  --ink-soft: #5c5750;
-  --line: #ddd6cb;
-  --accent: #1f1d1a;
-  --accent-ink: #f6f3ee;
+  --bg: #0f0e0d;
+  --bg-tinted: #171513;
+  --surface: #1e1b19;
+  --ink: #ece6dc;
+  --ink-soft: #9b948a;
+  --line: #2e2a26;
+  --accent: #ece6dc;
+  --accent-ink: #0f0e0d;
+  --paper: #f3efe7;
+  --paper-ink: #1b1a18;
 
-  /* Fonts: system fonts until the style is chosen. Self-host any web
-     font as .woff2 in assets/fonts/ (no Google Fonts, see CLAUDE.md). */
-  --font-display: Georgia, "Times New Roman", serif;
+  /* Fonts: system fonts, nothing loaded from outside. Self-host any web
+     font as .woff2 in assets/fonts/ (no Google Fonts, see CLAUDE.md).
+     Courier is the screenplay font and also marks small labels. */
+  --font-display: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-script: "Courier Prime", "Courier New", Courier, monospace;
 
   /* Type scale */
   --text-small: 0.875rem;
   --text-body: 1.0625rem;
   --text-lead: clamp(1.125rem, 0.6vw + 1rem, 1.3125rem);
-  --text-h3: 1.375rem;
-  --text-h2: clamp(1.75rem, 2.2vw + 1rem, 2.5rem);
-  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --text-h3: clamp(1.5rem, 1.2vw + 1rem, 2rem);
+  --text-h2: clamp(1.75rem, 2.2vw + 1rem, 2.75rem);
+  --text-hero: clamp(2.75rem, 6vw + 1rem, 5.5rem);
 
   /* Layout */
   --container: 72rem;
   --gutter: clamp(1rem, 4vw, 2rem);
   --section-y: clamp(4rem, 8vw, 7rem);
-  --radius: 4px;
+  --radius: 2px;
   --header-h: 4.5rem;
 }
 
@@ -47,6 +52,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: var(--header-h);
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -70,8 +76,9 @@ h2,
 h3 {
   margin: 0 0 0.5em;
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
@@ -87,7 +94,8 @@ p {
   margin: 0 0 1em;
 }
 
-img {
+img,
+video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -102,7 +110,9 @@ a {
   outline-offset: 3px;
 }
 
-ul {
+ul,
+dl,
+dd {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -137,8 +147,9 @@ blockquote {
 .eyebrow {
   margin-bottom: 0.75rem;
   color: var(--ink-soft);
+  font-family: var(--font-script);
   font-size: var(--text-small);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -192,8 +203,9 @@ blockquote {
   display: grid;
   place-items: center;
   border: 1px dashed var(--line);
-  background: var(--bg-tinted);
+  background: var(--surface);
   color: var(--ink-soft);
+  font-family: var(--font-script);
   font-size: var(--text-small);
 }
 
@@ -205,13 +217,19 @@ blockquote {
   aspect-ratio: 4 / 5;
 }
 
+.placeholder--wide {
+  aspect-ratio: 16 / 9;
+}
+
 /* Header =================================================================== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
 }
@@ -230,7 +248,9 @@ blockquote {
 
 .brand {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   text-decoration: none;
 }
 
@@ -241,12 +261,13 @@ blockquote {
 }
 
 .nav a {
+  color: var(--ink-soft);
   text-decoration: none;
-  text-underline-offset: 0.35em;
+  transition: color 0.2s;
 }
 
 .nav a:hover {
-  text-decoration: underline;
+  color: var(--ink);
 }
 
 .menu-toggle {
@@ -301,6 +322,7 @@ blockquote {
 .mobile-menu a {
   font-family: var(--font-display);
   font-size: 2rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -320,7 +342,7 @@ blockquote {
   }
 }
 
-/* Hero ===================================================================== */
+/* Hero: a short personal letter next to a portrait ======================== */
 
 .hero {
   padding-block: clamp(3rem, 8vw, 6rem) var(--section-y);
@@ -336,10 +358,13 @@ blockquote {
   font-size: var(--text-hero);
 }
 
-.hero__lead {
+.hero__letter {
   max-width: 34rem;
-  color: var(--ink-soft);
   font-size: var(--text-lead);
+}
+
+.hero__letter p + p {
+  color: var(--ink-soft);
 }
 
 .hero__actions {
@@ -350,7 +375,7 @@ blockquote {
 }
 
 .hero__media {
-  max-width: 22rem;
+  max-width: 24rem;
   width: 100%;
   justify-self: center;
 }
@@ -371,42 +396,248 @@ blockquote {
   background: var(--bg-tinted);
 }
 
-.section--tinted .placeholder {
-  background: var(--bg);
-}
-
 .section__head {
   max-width: 40rem;
   margin-bottom: 3rem;
 }
 
-/* Books */
+/* Films: each one tinted by its own --film colour */
 
-.books {
+.films {
   display: grid;
-  gap: 3rem;
+  gap: clamp(4rem, 8vw, 6rem);
 }
 
-.book {
+.film {
+  --film: var(--ink-soft);
   display: grid;
-  grid-template-columns: minmax(7rem, 11rem) 1fr;
-  gap: 1.5rem;
-  align-items: start;
+  gap: 1.5rem 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--film) 55%, transparent);
 }
 
-.book__meta {
-  margin-bottom: 0.4rem;
+.film__media {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--film) 70%, transparent);
+}
+
+.film__media video,
+.film__media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.film .placeholder {
+  border-color: color-mix(in srgb, var(--film) 35%, transparent);
+  background: color-mix(in srgb, var(--film) 10%, var(--bg));
+  color: color-mix(in srgb, var(--film) 70%, var(--ink-soft));
+}
+
+.film__meta {
+  margin-bottom: 0.5rem;
+  color: var(--film);
+  font-family: var(--font-script);
+  font-size: var(--text-small);
+  letter-spacing: 0.04em;
+}
+
+.film__title {
+  margin-bottom: 0.2rem;
+}
+
+.film__alt {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.film__logline {
+  max-width: 34rem;
+  font-size: var(--text-lead);
+}
+
+.credits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
+  margin-block: 1.5rem;
+  font-size: var(--text-small);
+}
+
+.credits dt {
+  color: var(--ink-soft);
+  font-family: var(--font-script);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.film__festival {
   color: var(--ink-soft);
   font-size: var(--text-small);
 }
 
-.book__title {
-  margin-bottom: 0.6rem;
+.film .text-link {
+  color: var(--film);
+}
+
+.stills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.stills img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 @media (min-width: 52rem) {
-  .books {
-    grid-template-columns: repeat(2, 1fr);
+  .film {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
+  }
+
+  .stills {
+    grid-column: 1 / -1;
+    gap: 1rem;
+  }
+
+  .credits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 64rem) {
+  .credits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Reading sample: a screenplay page in standard format */
+
+.reading {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+
+.reading__head {
+  max-width: 26rem;
+}
+
+.screenplay {
+  width: 100%;
+  max-width: 40rem;
+  justify-self: center;
+  padding: clamp(1.75rem, 6vw, 4rem) clamp(1.25rem, 6vw, 4rem) 2rem;
+  background: var(--paper);
+  color: var(--paper-ink);
+  font-family: var(--font-script);
+  font-size: clamp(0.8125rem, 0.4vw + 0.7rem, 0.9375rem);
+  line-height: 1.5;
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+.screenplay p {
+  margin: 0 0 1.2em;
+}
+
+.sp-slug {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sp-char {
+  margin: 0 0 0 !important;
+  padding-left: 37%;
+  text-transform: uppercase;
+}
+
+.sp-paren {
+  margin: 0 !important;
+  padding-left: 30%;
+}
+
+.sp-dialog {
+  padding-inline: 18% 15%;
+}
+
+.sp-trans {
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.sp-page {
+  margin: 2em 0 0 !important;
+  text-align: right;
+  opacity: 0.6;
+}
+
+@media (min-width: 52rem) {
+  .reading {
+    grid-template-columns: 1fr 1.6fr;
+  }
+
+  .reading__head {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}
+
+/* Book */
+
+.book {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.book__cover {
+  max-width: 16rem;
+  width: 100%;
+}
+
+.book__body {
+  max-width: 34rem;
+}
+
+.book__cover img {
+  width: 100%;
+  box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--film) 60%, transparent);
+}
+
+.book__meta {
+  color: var(--film);
+  font-family: var(--font-script);
+  font-size: var(--text-small);
+}
+
+.book__blurb {
+  margin-block: 1.5rem 2rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid color-mix(in srgb, var(--film) 55%, transparent);
+  color: var(--ink-soft);
+}
+
+.book__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero__media img {
+  width: 100%;
+  filter: grayscale(1);
+}
+
+@media (min-width: 52rem) {
+  .book {
+    grid-template-columns: 16rem 1fr;
+    gap: 4rem;
   }
 }
 
@@ -433,68 +664,6 @@ blockquote {
   }
 }
 
-/* Events */
-
-.events {
-  border-top: 1px solid var(--line);
-}
-
-.event {
-  display: grid;
-  gap: 0.25rem 2rem;
-  padding-block: 1.5rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.event__date {
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-}
-
-.event__title {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.event__place {
-  margin: 0.2rem 0 0;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-}
-
-@media (min-width: 52rem) {
-  .event {
-    grid-template-columns: 11rem 1fr auto;
-    align-items: baseline;
-  }
-}
-
-/* Press */
-
-.quotes {
-  display: grid;
-  gap: 2.5rem;
-}
-
-.quote blockquote {
-  font-family: var(--font-display);
-  font-size: var(--text-lead);
-  line-height: 1.5;
-}
-
-.quote figcaption {
-  margin-top: 0.75rem;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-}
-
-@media (min-width: 52rem) {
-  .quotes {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
-  }
-}
-
 /* Contact */
 
 .contact__list {
@@ -511,6 +680,7 @@ blockquote {
 
 .contact__label {
   color: var(--ink-soft);
+  font-family: var(--font-script);
   font-size: var(--text-small);
 }
 
@@ -560,7 +730,7 @@ blockquote {
 
 .legal h2 {
   margin-top: 2.5rem;
-  font-size: var(--text-h3);
+  font-size: 1.375rem;
 }
 
 .legal .back {
